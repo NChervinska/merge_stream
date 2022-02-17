@@ -47,9 +47,7 @@ class _MainPageState extends State<MainPage> {
             } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),
@@ -61,10 +59,7 @@ class _MainPageState extends State<MainPage> {
     _items.add(data);
     return ListView(
       children: _items
-          .map((e) => Text(
-                e,
-                style: const TextStyle(fontSize: 24),
-              ))
+          .map((e) => Text(e, style: const TextStyle(fontSize: 24)))
           .toList(),
     );
   }
