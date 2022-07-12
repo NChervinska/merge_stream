@@ -22,15 +22,10 @@ class _MainPageState extends State<MainPage> {
       const Duration(seconds: 5),
       (i) => 'second stream $i',
     );
-    _stream = MergeStream([_stream1, _stream2]);
-    //_stream = RetryStream(() => _stream1, 3);
-    //_stream = ConcatStream([_stream1, _stream2]);
-    // _stream = ZipStream([_stream1, _stream2], (values) => values.toString());
-    // _stream = CombineLatestStream(
-    //   [_stream1, _stream2],
-    //   (values) => values.toString(),
-    // );
-    //_stream = RaceStream([_stream1, _stream2]);
+    _stream = CombineLatestStream(
+      [_stream1, _stream2],
+      (value) => value.toString(),
+    );
   }
 
   @override
